@@ -15,5 +15,11 @@ module FinanceTrack
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    IEX::Api.configure do |config|
+    	config.publishable_token = 'Tpk_0b1b113041e34abebd0bb46362fcae8e'
+    	config.secret_token = 'Tsk_0e977b9338fc41aa902328f60db29834'
+    	config.endpoint = 'https://sandbox.iexapis.com/v1'
+    end	 
   end
 end
