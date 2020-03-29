@@ -6,7 +6,10 @@ class Stock < ApplicationRecord
                                  #)
      
     #client.price(ticker)
-    
-    where(ticker: ticker)
+    begin
+      where(ticker: ticker).first
+    rescue => exception
+      return nil
+    end  
   end
 end
