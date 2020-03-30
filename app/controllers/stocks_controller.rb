@@ -8,12 +8,17 @@ class StocksController < ApplicationController
         end  
         
       else
-        flash[:danger] = "please Enter the valid ticker symbol"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:alert] = "please Enter the valid ticker symbol"
+          format.js { render partial: 'users/result'}
+        end
       end  
     else
-      flash[:danger] = "Please Enter the ticker symbol to Search"
-      redirect_to my_portfolio_path
+      
+      respond_to do |format|
+          flash.now[:alert] = "Please Enter the ticker symbol to Search"
+          format.js { render partial: 'users/result'}
+      end
     end  
   end
 end
