@@ -8,9 +8,14 @@
         <tr>
           <td><strong>Email:</strong><%=friend.email%></td>
           <td><strong>Name:</strong><%=friend.full_name%></td>
-          <td><strong>Actions</strong><%=link_to "View Profile", "#", class: "btn btn-success"%></td>
-   
-          <td><%= link_to "Follow Friend", "#", class: "btn btn-success", method: :post%></td>
+          <td><strong>Actions</strong><%=link_to "View Profile", user_path(friend), class: "btn btn-success"%></td>
+          <%if current_user.not_friend_with?(friend.id)%>
+          <td><%= link_to "Follow Friend", friendships_path(friend: friend), class: "btn btn-success", method: :post%></td>
+          <%else%>
+         <td><span class = "badge badge-secondary">
+           Already Friends
+         </span></td>
+          <%end%>
         </tr>
        <%end%>
       </tbody>

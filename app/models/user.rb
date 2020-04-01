@@ -58,4 +58,8 @@ class User < ApplicationRecord
     users.reject { |user|  user.id == self.id}
   end
 
+  def not_friend_with?(id)
+    !self.friends.where(id: id).exists?
+  end
+
 end
