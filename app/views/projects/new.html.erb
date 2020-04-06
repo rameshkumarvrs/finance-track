@@ -1,0 +1,17 @@
+<div class = "row">
+  <div class ="col-md-9">
+    
+    <%= form_with scope: :project, url: projects_path, local: true do |form| %>
+  <%= form.label :name %>:
+  <%= form.text_field :name %><br />
+
+ <%= form.label :category%>:
+ <%= form.select :category, options_for_select(@category),:multiple => true, :include_blank => true, :prompt=>'All' %><br />
+
+  <%= form.submit %>
+<% end  %>
+
+    
+  </div>
+</div>
+
